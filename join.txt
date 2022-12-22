@@ -1,0 +1,21 @@
+1. Selezionare tutti gli studenti iscritti al Cordo di Laurea in Economia
+SELECT *, `degrees`.`name`
+FROM `students` 
+INNER JOIN `degrees`
+HAVING `degrees`.`name` = 'Corso di Laurea in Economia'
+
+2. Selezionare tutti i corsi di Laurea Magistrale del Dipartimento di Neuroscienze
+SELECT *, `departments`.`name`
+FROM `degrees` 
+INNER JOIN `departments`
+HAVING `departments`.`name` = 'Dipartimento di Neuroscienze' 
+AND `degrees`.`level` = 'magistrale'
+
+3. Selezionare tutti i corsi in cui insegna Fulvio Amato
+SELECT `teachers`.`id`,`teachers`.`name`, `teachers`.`surname`, `courses`.`name` 
+FROM `teachers` 
+INNER JOIN `course_teacher`
+INNER JOIN `courses`
+HAVING `teachers`.`id` = 44 
+
+4. Selezionare tutti gli studenti con i dati relativi al corso di laure a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
